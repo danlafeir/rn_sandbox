@@ -22,7 +22,7 @@ class Search extends Component {
     this.state = { 
       value: '',
       dataSource: ds.cloneWithRows([])
-   }
+   };
   }
 
   render() {
