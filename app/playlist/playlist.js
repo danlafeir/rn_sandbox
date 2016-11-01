@@ -8,7 +8,17 @@ import {
 import { connect } from 'react-redux'
 
 const renderRow = (rowData) => {
-  return <Text style={styles.title}>{JSON.stringify(rowData)}</Text>
+  return (
+    <View style={styles.row}>
+      <View style={styles.leftContainer}>
+        <Text style={styles.title}>{rowData.title}</Text>
+        <Text style={styles.artist}>{rowData.artist}</Text>
+      </View>
+      <View style={styles.rightContainer}>
+        <Text style={styles.votes}>{rowData.votes}</Text>
+      </View>
+    </View>
+  )
 }
 
 class Playlist extends Component {
@@ -23,11 +33,37 @@ class Playlist extends Component {
 }
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginTop: 50, 
-  }
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+    borderColor: 'black',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    margin: 2
+  },
+  leftContainer: {
+    flex: .8,
+    margin: 2,
+    borderColor: 'black',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    padding: 5
+  },
+  rightContainer: {
+    flex: .2,
+    margin: 2,
+    borderColor: 'black',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    padding: 5
+  },
+  title: {},
+  artist: {},
+  votes: {}
 });
 
 const mapStateToProps = (state) => {
