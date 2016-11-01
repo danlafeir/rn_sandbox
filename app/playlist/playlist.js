@@ -32,6 +32,7 @@ class Playlist extends Component {
 
     return (
       <ListView
+        style={{margin:10}}
         dataSource={this.props.dataSource}
         renderRow={renderRow}
       />
@@ -46,10 +47,10 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderStyle: 'solid',
     borderWidth: 1,
-    margin: 2
+    margin: 3
   },
   leftContainer: {
-    flex: .7,
+    flex: .65,
     margin: 2,
     borderColor: 'black',
     borderStyle: 'solid',
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15
   },
   rightContainer: {
-    flex: .3,
+    flex: .35,
     margin: 2,
     borderColor: 'black',
     borderStyle: 'solid',
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
   upVote:{
     backgroundColor: 'black',
     color: 'white',
-    margin: 10,
+    margin: 6,
     padding: 2
   }
 });
