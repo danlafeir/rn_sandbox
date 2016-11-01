@@ -2,15 +2,25 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View
+  View,
+  ListView
 } from 'react-native';
+import { Provider } from 'react-redux'
+import reduxStore from './redux_store'
+
+import getSongs from './playlist/services/get_songs'
+import Playlist from './playlist/playlist'
 
 export default class react_native_tutorials extends Component {
   render() {
+    getSongs();
     return (
-      <View style={styles.container}>
-        
-      </View>
+      <Provider store={reduxStore}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Sandbox</Text>
+          <Playlist/>
+        </View>
+      </Provider>
     );
   }
 }
@@ -18,13 +28,11 @@ export default class react_native_tutorials extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
+  title: {
     fontSize: 20,
     textAlign: 'center',
-    marginTop: 50,
+    marginTop: 50, 
   }
 });
