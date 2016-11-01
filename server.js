@@ -27,7 +27,20 @@ app.get('/playlist/songs', (req, res) => {
 	res.send({ playlist: testData })
 });
 
-app.post('playlist/vote', (req, res) => {
+app.post('/playlist/vote', (req, res) => {
 	console.log(req.body);
 	res.send({ playlist: testData })
 });
+
+let data = {}
+
+app.post('/data/modify', (req, res) => {
+	data = Object.assign({}, data, req.body);
+	res.sendStatus(200)
+})
+
+app.get('/data/all', (req, res) => {
+	res.send(data)
+})
+
+
