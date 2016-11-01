@@ -6,9 +6,11 @@ const testInitialState = [
 ]
 
 module.exports = (state = testInitialState, action = {}) => {
-  if(action.type === '@playlist/add'){
-    return state.push(action.song);
+  if(action.type === '@playlist/upvote'){
+    const newState = Object.assign({}, state);
+    newState[action.index].votes = state[action.index].votes + 1
+    return newState;
   }
-
+  
   return state;
 }

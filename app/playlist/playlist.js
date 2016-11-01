@@ -7,22 +7,29 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux'
 
-const renderRow = (rowData) => {
-  return (
-    <View style={styles.row}>
-      <View style={styles.leftContainer}>
-        <Text style={styles.title}>{rowData.title}</Text>
-        <Text style={styles.artist}>{rowData.artist}</Text>
-      </View>
-      <View style={styles.rightContainer}>
-        <Text style={styles.votes}>{rowData.votes}</Text>
-      </View>
-    </View>
-  )
-}
-
 class Playlist extends Component {
   render() {
+    const renderRow = (rowData, sectionID, rowID) => {
+      return (
+        <View style={styles.row}>
+          <View style={styles.leftContainer}>
+            <Text style={styles.title}>{rowData.title}</Text>
+            <Text style={styles.artist}>{rowData.artist}</Text>
+          </View>
+          <View style={styles.rightContainer}>
+            <Text style={styles.votes}>{rowData.votes}</Text>
+            <Text style={styles.upVote} 
+                  onPress={() => this.props.dispatch({
+                    type: '@playlist/upvote', 
+                    index: rowID 
+                  })}>
+                  ^upvote
+            </Text>
+          </View>
+        </View>
+      )
+    }
+
     return (
       <ListView
         dataSource={this.props.dataSource}
@@ -42,7 +49,7 @@ const styles = StyleSheet.create({
     margin: 2
   },
   leftContainer: {
-    flex: .8,
+    flex: .7,
     margin: 2,
     borderColor: 'black',
     borderStyle: 'solid',
@@ -52,14 +59,20 @@ const styles = StyleSheet.create({
     padding: 5
   },
   rightContainer: {
-    flex: .2,
+    flex: .3,
     margin: 2,
     borderColor: 'black',
     borderStyle: 'solid',
     borderWidth: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
     padding: 5
+  },
+  upVote:{
+    backgroundColor: 'black',
+    color: 'white',
+    margin: 10
   },
   title: {},
   artist: {},
