@@ -8,12 +8,10 @@ import {
 import { Provider } from 'react-redux'
 import reduxStore from './redux_store'
 
-import getSongs from './playlist/services/get_songs'
 import Playlist from './playlist/playlist'
 
 export default class react_native_tutorials extends Component {
   render() {
-    getSongs();
     return (
       <Provider store={reduxStore}>
         <View style={styles.container}>
