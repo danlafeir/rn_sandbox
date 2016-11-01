@@ -33,8 +33,7 @@ class Search extends Component {
       return (
         <View style={styles.row}>
           <Text style={styles.searchResults}
-                numberOfLines={1}
-                ellipsizeMode={'tail'}>
+                numberOfLines={1}>
             {`${rowData.name} | ${rowData.artists[0].name}`}
           </Text>
         </View>
@@ -42,7 +41,7 @@ class Search extends Component {
     }
 
     return (
-      <View>
+      <View style={{flex:1}}>
         <TextInput 
           style={styles.input}
           onChangeText={(text) => {
@@ -51,7 +50,7 @@ class Search extends Component {
           }}
           value={this.state.value}/>
         <ListView
-          style={{margin:10}}
+          style={{flex:1}}
           dataSource={this.state.dataSource}
           renderRow={renderRow}
         />
@@ -69,19 +68,17 @@ const styles = StyleSheet.create({
     padding: 5,
     paddingTop: 10,
     paddingBottom: 10,
-    marginTop: 3
+    marginLeft: 7,
+    marginRight: 7,
+    marginTop: 7,
   },
   input: {
     height: 40, 
     borderColor: 'gray', 
     borderWidth: 1,
-    marginLeft: 5,
-    marginRight: 5,
+    margin: 10,
     padding: 5,
     paddingLeft: 10
-  },
-  searchResults: {
-    
   }
 });
 
