@@ -5,7 +5,7 @@ import {
   View,
   ListView
 } from 'react-native';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 class Playlist extends Component {
   render() {
@@ -13,11 +13,11 @@ class Playlist extends Component {
       return (
         <View style={styles.row}>
           <View style={styles.leftContainer}>
-            <Text style={styles.title}>{rowData.title}</Text>
-            <Text style={styles.artist}>{rowData.artist}</Text>
+            <Text>{rowData.title}</Text>
+            <Text>{rowData.artist}</Text>
           </View>
           <View style={styles.rightContainer}>
-            <Text style={styles.votes}>{rowData.votes}</Text>
+            <Text>{rowData.votes}</Text>
             <Text style={styles.upVote} 
                   onPress={() => this.props.dispatch({
                     type: '@playlist/upvote', 
@@ -27,7 +27,7 @@ class Playlist extends Component {
             </Text>
           </View>
         </View>
-      )
+      );
     }
 
     return (
@@ -37,7 +37,7 @@ class Playlist extends Component {
       />
     );
   }
-}
+};
 
 const styles = StyleSheet.create({
   row: {
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    padding: 5
+    padding: 5,
+    paddingLeft: 15
   },
   rightContainer: {
     flex: .3,
@@ -72,16 +73,14 @@ const styles = StyleSheet.create({
   upVote:{
     backgroundColor: 'black',
     color: 'white',
-    margin: 10
-  },
-  title: {},
-  artist: {},
-  votes: {}
+    margin: 10,
+    padding: 2
+  }
 });
 
 const mapStateToProps = (state) => {
   const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
   return { dataSource: ds.cloneWithRows(state.playlist) };
-}
+};
 
-export default connect(mapStateToProps)(Playlist)
+export default connect(mapStateToProps)(Playlist);

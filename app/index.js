@@ -5,10 +5,10 @@ import {
   View,
   ListView
 } from 'react-native';
-import { Provider } from 'react-redux'
-import reduxStore from './redux_store'
+import { Provider } from 'react-redux';
+import reduxStore from './redux_store';
 
-import Playlist from './playlist/playlist'
+import Playlist from './playlist/playlist';
 
 export default class react_native_tutorials extends Component {
   render() {
@@ -21,7 +21,7 @@ export default class react_native_tutorials extends Component {
       </Provider>
     );
   }
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     textAlign: 'center',
-    marginTop: 50, 
+    marginTop: 50 
   }
 });
