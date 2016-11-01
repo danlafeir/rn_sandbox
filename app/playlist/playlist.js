@@ -3,7 +3,8 @@ import {
   StyleSheet,
   Text,
   View,
-  ListView
+  ListView,
+  TouchableHighlight
 } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -18,13 +19,14 @@ class Playlist extends Component {
           </View>
           <View style={styles.rightContainer}>
             <Text>{rowData.votes}</Text>
-            <Text style={styles.upVote} 
-                  onPress={() => this.props.dispatch({
-                    type: '@playlist/upvote', 
-                    index: rowID 
-                  })}>
-                  ^upvote
-            </Text>
+            <TouchableHighlight onPress={() => this.props.dispatch({
+                      type: '@playlist/upvote', 
+                      index: rowID 
+                    })}>
+              <Text style={styles.upVote}>
+                    ^upvote
+              </Text>
+            </TouchableHighlight>
           </View>
         </View>
       );
