@@ -12,5 +12,10 @@ module.exports = (state = testInitialState, action = {}) => {
     return newState;
   }
 
+  if(action.type === '@playlist/add'){
+    console.log([...state, action.song]);
+    return [...state, action.song];
+  }
+
   return state;
 }
