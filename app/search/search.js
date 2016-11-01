@@ -26,20 +26,26 @@ class Search extends Component {
   }
 
   render() {
+    let searching = false
     const search = (searchValue) => {
-      fetch('https://api.spotify.com/v1/search?q='+searchValue+'&type=track&market=US&limit=50')
-        .then((response) => response.json().then((data) => {
-          this.setState({ dataSource: ds.cloneWithRows(data.tracks.items) });
-        }))
-        .catch((err) => console.log(err));
+      if(!searching){
+        searching = true
+        fetch('https://api.spotify.com/v1/search?q='+searchValue+'&type=track&market=US&limit=50')
+          .then((response) => response.json().then((data) => {
+            searching = false
+            const results = data.tracks.items.map(createSong);
+            this.setState({ dataSource: ds.cloneWithRows(results) });
+          }))
+          .catch((err) => console.log(err));
+      }
     }
 
     const renderRow = (rowData) => {
       return (
         <View style={styles.row}>
           <View style={styles.leftContainer}>
-            <Text>{rowData.name}</Text>
-            <Text>{rowData.artists[0].name}</Text>
+            <Text>{rowData.title}</Text>
+            <Text>{rowData.artist}</Text>
           </View>
           <View style={styles.rightContainer}>
             <Text style={styles.add}
