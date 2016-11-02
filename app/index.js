@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import reduxStore from './redux_store';
 
 import Navigation from './navigation/navigation'
+import Camera from './camera/camera'
 
 export default class react_native_tutorials extends Component {
   render() {
@@ -15,7 +16,7 @@ export default class react_native_tutorials extends Component {
       <Provider store={reduxStore}>
         <View style={styles.container}>
           <Text style={styles.title}>Sandbox</Text>
-          <Navigation/>
+            <Navigation/>
         </View>
       </Provider>
     );
