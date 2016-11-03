@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 const createSong = (rowData) => ({
   title: rowData.name,
-  artist: rowData.artists[0].name,
+  artist: 'test',
   uri: rowData.uri, 
   votes: 0
 })

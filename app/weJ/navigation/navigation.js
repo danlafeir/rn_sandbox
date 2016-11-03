@@ -32,7 +32,7 @@ class Navigation extends Component {
             </Text>
           </TouchableHighlight>
         </View>
-        <this.props.currentComponent/>
+        <Playlist/>
       </View>
     );
   }
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 
 
 const mapStateToProps = (state) => {
-  return { currentComponent: state.navigation.currentComponent || Playlist };
+  return { currentComponent: state.navigation.currentComponent };
 };
 
 export default connect(mapStateToProps)(Navigation)
