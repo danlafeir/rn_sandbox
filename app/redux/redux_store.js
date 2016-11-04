@@ -4,7 +4,7 @@ import React from 'react-native'
 
 import { createStore, combineReducers } from 'redux';
 import playlistReducer from '../weJ/playlist/reducers/playlist'
-import navigationReducer from '../weJ/navigation/reducers/navigation'
+import navigationReducer from '../navigation/reducers/navigation'
 
 const reducer = combineReducers({
   playlist: playlistReducer,
