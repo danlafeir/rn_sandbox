@@ -7,7 +7,7 @@ import {
 import { Provider } from 'react-redux';
 import reduxStore from './redux/redux_store';
 
-import weJ from './weJ/weJ';
+import WeJ from './weJ/weJ';
 import Camera from './camera/camera';
 
 
@@ -17,7 +17,7 @@ export default class react_native_tutorials extends Component {
       <Provider store={reduxStore}>
         <View style={styles.container}>
           <Text style={styles.title}>Sandbox</Text>
-          <weJ/>
+          <WeJ/>
         </View>
       </Provider>
     );
